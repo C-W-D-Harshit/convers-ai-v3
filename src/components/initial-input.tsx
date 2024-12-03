@@ -79,7 +79,7 @@ export const InitialInput = memo(function InitialInput() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Message Convers-AI... (Shift+Enter for new line)"
+            placeholder="Message convomate... (Shift+Enter for new line)"
             className="w-full py-3 px-4 pr-24 bg-muted/50 border-border resize-none overflow-hidden"
             rows={1}
           />

@@ -77,7 +77,7 @@ export const ChatInput = memo(function ChatInput() {
             value={input}
             onChange={onInputChange}
             onKeyDown={handleKeyDown}
-            placeholder="Message Convers-AI... (Shift+Enter for new line)"
+            placeholder="Message convomate... (Shift+Enter for new line)"
             className="w-full py-2 pr-20 pl-3 sm:py-3 sm:pr-24 sm:pl-4 bg-muted/50 border-border resize-none overflow-hidden text-sm sm:text-base"
             rows={1}
           />

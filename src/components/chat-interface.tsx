@@ -35,7 +35,7 @@ export default function ChatInterface() {
       >
         <div className="flex items-center gap-2 flex-grow">
           <Bot className="w-6 h-6" />
-          <span className="font-semibold">Convers-AI</span>
+          <span className="font-semibold">Convomate</span>
         </div>
         <div className="flex gap-2">
           <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
@@ -85,7 +85,7 @@ export default function ChatInterface() {
 
             <div className="p-2 sm:p-4 text-center text-[10px] sm:text-xs text-muted-foreground">
               <p className="mb-1 sm:mb-2">
-                By messaging Convers-AI, you agree to our{" "}
+                By messaging convomate, you agree to our{" "}
                 <Button
                   variant="link"
                   className="p-0 h-auto text-[10px] sm:text-xs"
@@ -111,7 +111,7 @@ export default function ChatInterface() {
                   Learn more
                 </Button>
               </p>
-              <p>Convers-AI can make mistakes. Check important info.</p>
+              <p>convomate can make mistakes. Check important info.</p>
             </div>
           </div>
         </div>
