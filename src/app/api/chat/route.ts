@@ -3,6 +3,7 @@ import { streamText } from "ai";
 import { kv } from "@vercel/kv";
 import { Ratelimit } from "@upstash/ratelimit";
 import { NextRequest } from "next/server";
+import { z } from "zod";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -37,6 +38,36 @@ export async function POST(req: NextRequest) {
     frequencyPenalty: 0.5,
     presencePenalty: 0.5,
     maxSteps: 4,
+    tools: {
+      generateImage: {
+        description: "generate an image based on a given prompt",
+        parameters: z.object({ prompt: z.string() }),
+        execute: async ({ prompt }: { prompt: string }) => {
+          try {
+            const response = await fetch(
+              `https://image.pollinations.ai/prompt/${encodeURIComponent(
+                prompt
+              )}`,
+              { method: "GET" }
+            );
+
+            if (!response.ok) {
+              throw new Error(
+                `Failed to generate image: ${response.statusText}`
+              );
+            }
+
+            // Return the image URL for usage
+            return response.url; // If the response is the direct image URL
+          } catch (error) {
+            console.error("Error generating image:", error);
+            throw new Error(
+              "Could not generate the image. Please try again later."
+            );
+          }
+        },
+      },
+    },
   });
 
   return result.toDataStreamResponse();
